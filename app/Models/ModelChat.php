@@ -23,6 +23,14 @@ class ModelChat extends Model
             ->getResultArray();
     }
 
+    public function dari($id_pengirim)
+    {
+        return $this->db->table('tb_chating')
+            ->where('id_penerima', $id_pengirim)
+            ->get()
+            ->getRowArray();
+    }
+
     public function tampilByChating($id_chating, $id_penerima)
     {
         return $this->db->table('tb_chating')

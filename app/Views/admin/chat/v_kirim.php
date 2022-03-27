@@ -1,7 +1,6 @@
-<?= $this->extend('layouts/template-frontend'); ?>
+<?= $this->extend('layouts/template-backend'); ?>
 
 <?= $this->section('content'); ?>
-
 
 
 <div class="col-md-4">
@@ -17,7 +16,7 @@
         <div class="card-body">
             <div class="mailbox-controls">
 
-                <?= form_open('siswa/proses_kirim', ['class' => 'formKirim']) ?>
+                <?= form_open('admin/proses_kirim', ['class' => 'formKirim']) ?>
                 <?= csrf_field() ?>
 
                 <label for="">Penerima (User)</label>
@@ -54,7 +53,7 @@
                 <div class="invalid-feedback errorPesan"></div>
             </div>
             <div class="form-group">
-                <a href="<?= base_url('siswa/chat') ?>" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-arrow-left"></i> &nbsp;Kembali</a>
+                <a href="<?= base_url('admin/chat') ?>" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-arrow-left"></i> &nbsp;Kembali</a>
                 <button type="submit" class="btn bg-cyan btn-flat btn-sm btnSimpan"><i class="fa fa-paper-plane"></i> &nbsp;Kirim</button>
                 <?= form_close() ?>
             </div>
@@ -104,7 +103,7 @@
                             title: 'Berhasil',
                             text: response.success,
                         }).then((result) => {
-                            window.location.href = '<?= base_url('siswa/pesanKeluar') ?>';
+                            window.location.href = '<?= base_url('admin/pesanKeluar') ?>';
                         })
 
                     }

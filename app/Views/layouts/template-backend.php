@@ -118,7 +118,11 @@ $setting = $db->table('tb_setting')
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item d-sm-inline-block ">
-                    <a href="<?= base_url('chat/index') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
+                    <?php if (session()->get('role') == 1) { ?>
+                        <a href="<?= base_url('admin/chat') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
+                    <?php } else if (session()->get('role') == 2) { ?>
+                        <a href="<?= base_url('guru/chat') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
+                    <?php } ?>
                 </li>
             </ul>
         </nav>

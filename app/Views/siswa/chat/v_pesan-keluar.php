@@ -62,18 +62,18 @@ $count_inbox = $modelMessages->where('id_penerima', $session->id_user)
         <div class="card-body p-0">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a href="<?= base_url('chatSiswa/pesanMasuk') ?>" class="nav-link">
+                    <a href="<?= base_url('siswa/pesanMasuk') ?>" class="nav-link">
                         <i class="fas fa-inbox"></i> Pesan Masuk
                         <span class="badge bg-primary float-right"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="<?= base_url('chatSiswa/pesanKeluar') ?>" class="nav-link">
+                    <a href="<?= base_url('siswa/pesanKeluar') ?>" class="nav-link">
                         <i class="far fa-envelope"></i> Pesan Keluar
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('chatSiswa/kirim') ?>" class="nav-link">
+                    <a href="<?= base_url('siswa/kirim') ?>" class="nav-link">
                         <i class="far fa-file-alt"></i> Kirim Pesan
                     </a>
                 </li>
@@ -108,22 +108,33 @@ $count_inbox = $modelMessages->where('id_penerima', $session->id_user)
                     </thead>
 
                     <tbody>
-                        <?php foreach ($messages as $key => $message) : ?>
+
+                        <?php if (empty($messages)) { ?>
                             <tr>
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $message['nama'] ?></td>
-                                <td>
-
-                                    <a href="<?= base_url('chatSiswa/lihat/' . $message['id_chating']) ?>"><?= $message['pesan'] ?></a>
-
-                                </td>
-                                <td class="text-center"><?= tanggal_indonesia($message['tanggal'], false) ?></td>
-                                <td class="text-center"><?= ($message['dibaca'] == 0) ? '<span class="text-danger">Belum dibaca</span>' : '<span class="text-success">Dibaca</span>' ?></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-xs btn-danger btn-flat" onclick="hapus(' <?= $message['id_chating'] ?> ')"><i class="fa fa-trash"></i></button>
-                                </td>
+                                <td colspan="6" class="text-center text-danger">Belum ada pesan keluar</td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php } else { ?>
+
+
+                            <?php foreach ($messages as $key => $message) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $message['nama'] ?></td>
+                                    <td>
+
+                                        <a href="<?= base_url('siswa/lihatOutbox/' . $message['id_chating']) ?>"><?= $message['pesan'] ?></a>
+
+                                    </td>
+                                    <td class="text-center"><?= tanggal_indonesia($message['tanggal'], false) ?></td>
+                                    <td class="text-center"><?= ($message['dibaca'] == 0) ? '<span class="text-danger">Belum dibaca</span>' : '<span class="text-success">Dibaca</span>' ?></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-xs btn-danger btn-flat" onclick="hapus(' <?= $message['id_chating'] ?> ')"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        <?php } ?>
+
                     </tbody>
                 </table>
             </div>

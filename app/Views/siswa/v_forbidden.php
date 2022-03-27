@@ -13,7 +13,7 @@
                     Anda tidak boleh mengakses halaman ini.
                 </p>
 
-                <a href="<?= base_url('siswa/kursus') ?>" class="btn btn-danger btn-sm">Kembali ke kursus</a>
+                <!-- <a href="<?= base_url('siswa/kursus') ?>" class="btn btn-danger btn-sm">Kembali ke kursus</a> -->
             </div>
         </div>
     </section>

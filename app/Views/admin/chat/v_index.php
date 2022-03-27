@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/template-frontend'); ?>
+<?= $this->extend('layouts/template-backend'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -16,18 +16,18 @@
         <div class="card-body p-0">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a href="<?= base_url('siswa/pesanMasuk') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/pesanMasuk') ?>" class="nav-link">
                         <i class="fas fa-inbox"></i> Pesan Masuk
                         <span class="badge bg-primary float-right"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="<?= base_url('siswa/pesanKeluar') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/pesanKeluar') ?>" class="nav-link">
                         <i class="far fa-envelope"></i> Pesan Keluar
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('siswa/kirim') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/kirim') ?>" class="nav-link">
                         <i class="far fa-file-alt"></i> Kirim Pesan
                     </a>
                 </li>

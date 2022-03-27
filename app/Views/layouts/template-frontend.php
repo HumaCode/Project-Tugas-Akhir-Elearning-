@@ -112,7 +112,7 @@ $setting = $db->table('tb_setting')
                     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
 
                         <li class="nav-item d-sm-inline-block ">
-                            <a href="<?= base_url('chatSiswa/index') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
+                            <a href="<?= base_url('siswa/chat') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
                         </li>
 
 

@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/template-frontend'); ?>
+<?= $this->extend('layouts/template-backend'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -67,7 +67,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
             </table>
         </div>
         <div class="card-footer">
-            <a href="<?= base_url('siswa/pesanKeluar') ?>" class="btn btn-danger btn-sm btn-block btn-flat">Kembali</a>
+            <a href="<?= base_url('admin/pesanKeluar') ?>" class="btn btn-danger btn-sm btn-block btn-flat">Kembali</a>
         </div>
     </div>
 </div>

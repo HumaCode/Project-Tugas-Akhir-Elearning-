@@ -75,20 +75,17 @@ class Filters extends BaseConfig
                 'except' => [
                     'home', 'home/*',
                     'admin', 'admin/*',
-                    'chat', 'chat/*',
                     '/',
                 ]
             ],
             'FilterGuru' => [
                 'except' => [
                     'guru', 'guru/*',
-                    'chat', 'chat/*',
                 ]
             ],
             'FilterSiswa' => [
                 'except' => [
                     'siswa', 'siswa/*',
-                    'chatSiswa', 'chatSiswa/*',
                     'login', 'login/*',
                 ]
             ],
@@ -118,12 +115,5 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [
-        'FilterPesan' => [
-            'before' => [
-                'chat/lihatInbox/*',
-                'chat/lihat/*',
-            ]
-        ],
-    ];
+    public $filters = [];
 }

@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/template-frontend'); ?>
+<?= $this->extend('layouts/template-backend'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -66,7 +66,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                 </tr>
             </table>
             <hr>
-            <?= form_open('siswa/balasPesan', ['class' => 'formBalas']) ?>
+            <?= form_open('chat/balasPesan', ['class' => 'formBalas']) ?>
             <?= csrf_field() ?>
 
             <input type="hidden" name="penerima" value="<?= $pengirim['id_user'] ?>">
@@ -78,7 +78,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
 
         </div>
         <div class="card-footer">
-            <a href="<?= base_url('siswa/pesanMasuk') ?>" class="btn btn-danger btn-sm btn-block btn-flat">Kembali</a>
+            <a href="<?= base_url('admin/pesanMasuk') ?>" class="btn btn-danger btn-sm btn-block btn-flat">Kembali</a>
         </div>
     </div>
 </div>
@@ -116,7 +116,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                             title: 'Berhasil',
                             text: response.success,
                         }).then((result) => {
-                            window.location.href = '<?= base_url('siswa/pesanKeluar') ?>';
+                            window.location.href = '<?= base_url('admin/pesanKeluar') ?>';
                         })
 
                     }

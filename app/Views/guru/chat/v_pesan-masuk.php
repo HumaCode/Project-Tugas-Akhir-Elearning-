@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/template-frontend'); ?>
+<?= $this->extend('layouts/template-backend'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -53,18 +53,18 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
         <div class="card-body p-0">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a href="<?= base_url('siswa/pesanMasuk') ?>" class="nav-link">
+                    <a href="<?= base_url('guru/pesanMasuk') ?>" class="nav-link">
                         <i class="fas fa-inbox"></i> Pesan Masuk
                         <span class="badge bg-primary float-right"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="<?= base_url('siswa/pesanKeluar') ?>" class="nav-link">
+                    <a href="<?= base_url('guru/pesanKeluar') ?>" class="nav-link">
                         <i class="far fa-envelope"></i> Pesan Keluar
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('siswa/kirim') ?>" class="nav-link">
+                    <a href="<?= base_url('guru/kirim') ?>" class="nav-link">
                         <i class="far fa-file-alt"></i> Kirim Pesan
                     </a>
                 </li>
@@ -111,7 +111,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                                     <td><?= $message['nama'] ?></td>
                                     <td>
 
-                                        <a href="<?= base_url('siswa/lihatInbox/' . $message['id_chating']) ?>"><?= $message['pesan'] ?></a>
+                                        <a href="<?= base_url('guru/lihatInbox/' . $message['id_chating']) ?>"><?= $message['pesan'] ?></a>
 
                                     </td>
                                     <td class="text-center"><?= tanggal_indonesia($message['tanggal'], false) ?></td>
