@@ -1,0 +1,64 @@
+html{
+	position: relative;
+}
+body{
+	margin-bottom: 120px;
+	margin-top: 30px;
+}
+
+
+hr{
+	width: 250px;
+	border-top: 3px solid #999;
+	border-radius: 3px;
+}
+
+section{
+	min-height: 600px;
+}
+
+
+.pKiri, .pKanan {
+	opacity: 0;
+	transform: translate(-50px, 0) rotate(15deg);
+	transition: 1s;
+}
+
+.pKanan {
+	transform: translate(50px, 0) rotate(-15deg);
+}
+
+.pKiri.pMuncul, .pKanan.pMuncul {
+	opacity: 1;
+	transform: translate(0,0);
+}
+
+
+.portfolio{
+	background-color: #eee;
+}
+
+
+.contact{
+	min-height: 850px;
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 120px;
+	background-color:#333;
+	padding-top: 40px;
+}
+footer p {
+	color: #aaa;
+	font-size: 0.9em;
+}
+footer a{
+	color: #aaa;
+	text-decoration: none;
+}
+footer a:hover{
+	color: yellow;
+	text-decoration: none;
+}
