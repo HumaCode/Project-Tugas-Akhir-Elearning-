@@ -364,7 +364,7 @@
                             title: 'Berhasil',
                             text: response.success,
                         }).then((result) => {
-                            window.location.href = '/';
+                            window.location.reload();
                         })
                     }
                 },
