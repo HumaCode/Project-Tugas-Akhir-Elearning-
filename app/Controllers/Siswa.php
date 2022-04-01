@@ -199,6 +199,43 @@ class Siswa extends BaseController
         }
     }
 
+    public function formAbsen2()
+    {
+        if ($this->request->isAJAX()) {
+
+            date_default_timezone_set("Asia/Jakarta");
+
+            $id_kursus      = $this->request->getVar('id_kursus');
+            $id_sub_kursus  = $this->request->getVar('id_sub_kursus');
+
+            $nis = session()->get('username');
+
+            $siswa = $this->ModelSiswa->tampilSiswaByUsername($nis);
+
+            $id_siswa = $siswa['id_siswa'];
+
+            // tampil data absensi berdasarkan id kursus, ud sub kursus dan id kelas
+            $absen = $this->ModelAbsensi->tampilByIdKelas($id_kursus, $id_sub_kursus, $id_siswa);
+
+            $id_absen = $absen['id_absen'];
+
+            $updatedata = [
+                'absen'         => 1,
+                'waktu'         => date('Y-m-d H:i:s')
+            ];
+
+            $this->ModelAbsensi->update($id_absen, $updatedata);
+
+            $msg = [
+                'success' => 'Kamu Berhasil Absen'
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit("Maaf permintaan tidak dapat di proses");
+        }
+    }
+
     public function upload()
     {
         // jika ada request dari ajax

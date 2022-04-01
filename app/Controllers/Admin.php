@@ -2555,6 +2555,13 @@ class Admin extends BaseController
                         'required' => '{field} tidak boleh kosong..!!',
                     ]
                 ],
+                'tipe' => [
+                    'label' => 'Tipe Absensi',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong..!!',
+                    ]
+                ],
                 'mulai' => [
                     'label' => 'Tanggal Mulai',
                     'rules' => 'required',
@@ -2569,6 +2576,7 @@ class Admin extends BaseController
                 $msg = [
                     'error' => [
                         'sesi'  => $validation->getError('sesi'),
+                        'tipe'  => $validation->getError('tipe'),
                         'mulai' => $validation->getError('mulai'),
                     ]
                 ];
@@ -2582,6 +2590,7 @@ class Admin extends BaseController
                     'id_kursus'     => $id_kursus,
                     'sub_kursus'    => htmlspecialchars($this->request->getVar('sesi')),
                     'id_ta'         => $id_ta,
+                    'tipe'          => $this->request->getVar('tipe'),
                     'mulai'         => $this->request->getVar('mulai')
                 ];
 
@@ -2612,6 +2621,7 @@ class Admin extends BaseController
             $data = [
                 'id_sub_kursus' => $row['id_sub_kursus'],
                 'sub_kursus'    => $row['sub_kursus'],
+                'tipe'          => $row['tipe'],
                 'mulai'         => $row['mulai'],
                 'ta_aktif'      => $ta_aktif['id_ta']
             ];
@@ -2640,6 +2650,13 @@ class Admin extends BaseController
                         'required' => '{field} tidak boleh kosong..!!',
                     ]
                 ],
+                'tipe' => [
+                    'label' => 'Tipe',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong..!!',
+                    ]
+                ],
                 'mulai' => [
                     'label' => 'Tanggal Mulai',
                     'rules' => 'required',
@@ -2654,6 +2671,7 @@ class Admin extends BaseController
                 $msg = [
                     'error' => [
                         'sesi'  => $validation->getError('sesi'),
+                        'tipe'  => $validation->getError('tipe'),
                         'mulai' => $validation->getError('mulai'),
                     ]
                 ];
@@ -2663,6 +2681,7 @@ class Admin extends BaseController
                 $updateData = [
                     'sub_kursus'    => htmlspecialchars($this->request->getVar('sesi')),
                     'id_ta'         => $id_ta,
+                    'tipe'          => $this->request->getVar('tipe'),
                     'mulai'         => $this->request->getVar('mulai')
                 ];
 

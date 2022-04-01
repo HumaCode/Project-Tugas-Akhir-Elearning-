@@ -195,7 +195,7 @@
                     </p>
 
                     <table id="tb-kritik" class="table table-striped mt-3">
-                        <thead class="table-dark text-center">
+                        <thead class="table-dark text-center ">
                             <th width="10" class="text-center">
                                 <input type="checkbox" id="centangSemua">
                             </th>
@@ -256,6 +256,9 @@
         var table = $('#tb-kritik').DataTable({
             "processing": true,
             "serverSide": true,
+            "paging": true,
+            "ordering": true,
+            "info": true,
             "autoWidth": false,
             "responsive": true,
             "order": [],

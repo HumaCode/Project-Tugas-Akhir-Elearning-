@@ -10,7 +10,7 @@ class ModelSubKursus extends Model
     protected $primaryKey = 'id_sub_kursus';
     // protected $useTimestamps = true;
 
-    protected $allowedFields = ['id_kursus', 'sub_kursus', 'id_ta', 'mulai'];
+    protected $allowedFields = ['id_kursus', 'sub_kursus', 'id_ta', 'tipe', 'mulai'];
 
     public function tampilSemua($id_kursus, $id_ta)
     {

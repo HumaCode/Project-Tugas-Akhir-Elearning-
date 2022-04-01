@@ -19,6 +19,16 @@
                     <div class="invalid-feedback errorSesi"></div>
                 </div>
 
+                <div class="form-group">
+                    <label for="tipe">Tipe Absen</label>
+                    <select name="tipe" id="tipe" class="form-control form-control-sm" style="border-radius: 0px;">
+                        <option value="">-- Pilih --</option>
+                        <option value="0">Foto</option>
+                        <option value="1">Tanpa Foto</option>
+                    </select>
+                    <div class="invalid-feedback errorTipe"></div>
+                </div>
+
 
                 <div class="form-group">
                     <label for="mulai">Mulai</label>
@@ -61,6 +71,13 @@
                         } else {
                             $('#sesi').remove('is-invalid');
                             $('.errorSesi').html('');
+                        }
+                        if (response.error.tipe) {
+                            $('#tipe').addClass('is-invalid');
+                            $('.errorTipe').html(response.error.tipe);
+                        } else {
+                            $('#tipe').remove('is-invalid');
+                            $('.errorTipe').html('');
                         }
                         if (response.error.mulai) {
                             $('#mulai').addClass('is-invalid');

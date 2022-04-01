@@ -19,12 +19,18 @@
                         <marquee behavior="" direction="" class="text-danger">Jangan lupa untuk melakukan absensi</marquee>
 
                         <div class="row">
-                            <div class="col-md-1">
+                            <?php if ($sub_kursus['tipe'] == 0) { ?>
+                                <div class="col-md-2 mb-2">
+                                    <button type="button" class="btn btn-secondary btn-sm btn-flat " id="t-absen" onclick="foto('<?= $id_kursus ?>', '<?= $id_sub_kursus ?>')">Absensi</button>
+                                </div>
+                            <?php } else { ?>
+                                <div class="col-md-2 mb-2">
+                                    <button type="button" class="btn btn-secondary btn-sm btn-flat " id="t-absen" onclick="absensi('<?= $id_kursus ?>', '<?= $id_sub_kursus ?>')">Absensi</button>
+                                </div>
+                            <?php } ?>
 
-                                <button type="button" class="btn btn-secondary btn-sm btn-flat " id="t-absen" onclick="absensi('<?= $id_kursus ?>', '<?= $id_sub_kursus ?>')">Absensi</button>
-                            </div>
 
-                            <div class="col-md-11">
+                            <div class="col-md-10">
                                 <button id="mulai" class="btn btn-secondary btn-sm"></button>
                             </div>
                         </div>
@@ -32,6 +38,7 @@
                     <?php } else if ($absen['absen'] != 0) { ?>
 
                         <strong class="text-success text-center">Kamu Sudah Absen</strong>
+                        <button id="mulai" class="btn btn-secondary btn-sm"></button>
 
                     <?php } ?>
                 <?php } ?>
@@ -58,7 +65,7 @@
 
 <script>
     // tombol absensi
-    function absensi(id_kursus, id_sub_kursus) {
+    function foto(id_kursus, id_sub_kursus) {
         $.ajax({
             type: "post",
             url: "<?= site_url('siswa/formAbsen') ?>",
@@ -71,6 +78,37 @@
                 if (response.success) {
                     $('.viewModal').html(response.success).show();
                     $('#modalAbsen').modal('show');
+                }
+            },
+            error: function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Perintah tidak dapat diproses.!!',
+                })
+            }
+        })
+    }
+
+    // tombol absensi
+    function absensi(id_kursus, id_sub_kursus) {
+        $.ajax({
+            type: "post",
+            url: "<?= site_url('siswa/formAbsen2') ?>",
+            data: {
+                id_kursus: id_kursus,
+                id_sub_kursus: id_sub_kursus
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil',
+                        text: response.success,
+                    }).then((result) => {
+                        window.location.reload();
+                    })
                 }
             },
             error: function() {
@@ -103,8 +141,7 @@
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("mulai").innerHTML = days + " : " + hours + " : " +
-            minutes + " :  " + seconds + " ";
+        document.getElementById("mulai").innerHTML = days + " : " + hours + " : " + minutes + " :  " + seconds + " ";
 
         // If the countdown is finished, write some text
         if (distance < 0) {
@@ -112,7 +149,7 @@
             document.getElementById("mulai").innerHTML = "<span class='text-white'>Waktu Absensi Sudah Habis</span>";
             document.getElementById("t-absen").style.display = "none";
         }
-    }, 0000);
+    }, 1000);
 </script>
 
 

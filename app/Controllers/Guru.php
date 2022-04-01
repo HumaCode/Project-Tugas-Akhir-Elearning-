@@ -331,6 +331,13 @@ class Guru extends BaseController
                         'required' => '{field} tidak boleh kosong..!!',
                     ]
                 ],
+                'tipe' => [
+                    'label' => 'Tipe Absensi',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong..!!',
+                    ]
+                ],
                 'mulai' => [
                     'label' => 'Tanggal Mulai',
                     'rules' => 'required',
@@ -344,7 +351,8 @@ class Guru extends BaseController
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'sesi' => $validation->getError('sesi'),
+                        'sesi'  => $validation->getError('sesi'),
+                        'tipe'  => $validation->getError('tipe'),
                         'mulai' => $validation->getError('mulai')
                     ]
                 ];
@@ -358,6 +366,7 @@ class Guru extends BaseController
                     'id_kursus'     => $id_kursus,
                     'sub_kursus'    => htmlspecialchars($this->request->getVar('sesi')),
                     'id_ta'         => $id_ta,
+                    'tipe'          => $this->request->getVar('tipe'),
                     'mulai'         => $this->request->getVar('mulai')
                 ];
 
@@ -388,6 +397,7 @@ class Guru extends BaseController
             $data = [
                 'id_sub_kursus' => $row['id_sub_kursus'],
                 'sub_kursus'    => $row['sub_kursus'],
+                'tipe'          => $row['tipe'],
                 'mulai'         => $row['mulai'],
                 'ta_aktif'      => $ta_aktif['id_ta']
             ];
@@ -416,6 +426,13 @@ class Guru extends BaseController
                         'required' => '{field} tidak boleh kosong..!!',
                     ]
                 ],
+                'tipe' => [
+                    'label' => 'Tipe',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong..!!',
+                    ]
+                ],
                 'mulai' => [
                     'label' => 'Tannggal Mulai',
                     'rules' => 'required',
@@ -430,6 +447,7 @@ class Guru extends BaseController
                 $msg = [
                     'error' => [
                         'sesi' => $validation->getError('sesi'),
+                        'tipe' => $validation->getError('tipe'),
                         'mulai' => $validation->getError('mulai'),
                     ]
                 ];
@@ -439,6 +457,7 @@ class Guru extends BaseController
                 $updateData = [
                     'sub_kursus'    => htmlspecialchars($this->request->getVar('sesi')),
                     'id_ta'         => $id_ta,
+                    'tipe'          => $this->request->getVar('tipe'),
                     'mulai'         => $this->request->getVar('mulai')
                 ];
 
