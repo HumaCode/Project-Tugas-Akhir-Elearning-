@@ -72,14 +72,20 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                             <td><?= tanggal_indonesia($m['dibuat'], false) ?></td>
                             <td><?= $m['judul'] ?></td>
                             <td class="text-center" width="200">
-                                <?php if ($m['nama_file'] == 'Tidak ada file') { ?>
+                                <?php if ($m['nama_file'] == 'Tidak ada file' && $m['url'] == null) { ?>
                                     Tidak ada file
-                                <?php } else { ?>
+                                <?php } else if ($m['nama_file'] != 'Tidak ada file' && $m['url'] == null) { ?>
                                     Menggunakan File
+                                <?php } else if ($m['nama_file'] == 'Tidak ada file' && $m['url'] != null) { ?>
+                                    Embed Youtube
                                 <?php } ?>
                             </td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $m['id_materi'] ?>')"><i class="fa fa-eye"></i></button>
+                                <?php if ($m['url'] == null) { ?>
+                                    <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $m['id_materi'] ?>')"><i class="fa fa-eye"></i></button>
+                                <?php } else { ?>
+                                    <a href="<?= base_url('admin/lihatVideoMateri/' . $m['id_materi'] . '/' . $m['id_kursus'] . '/' . $m['id_sub_kursus']) ?>" class="btn btn-primary btn-flat btn-xs"><i class="fa fa-eye"></i></a>
+                                <?php } ?>
 
                                 <a href="<?= base_url('admin/editMateri/' . $m['id_materi'] . '/' . $id_sub_kursus . '/' . $id_kursus) ?>" class="btn btn-success btn-flat btn-xs"><i class="fas fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-flat btn-xs" onclick="hapus('<?= $m['id_materi'] ?>')"><i class="fas fa-trash"></i></button>

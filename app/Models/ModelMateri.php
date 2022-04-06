@@ -10,7 +10,7 @@ class ModelMateri extends Model
     protected $primaryKey = 'id_materi';
     protected $useTimestamps = false;
 
-    protected $allowedFields = ['id_kursus', 'id_sub_kursus', 'judul', 'nama_file', 'ket', 'dibuat'];
+    protected $allowedFields = ['id_kursus', 'id_sub_kursus', 'judul', 'nama_file', 'url', 'ket', 'dibuat'];
 
     public function tampilData($id_sub_kursus)
     {

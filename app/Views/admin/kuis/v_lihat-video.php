@@ -9,10 +9,10 @@
         </div>
         <div class="card-body text-center">
 
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" style="border-color: white;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
-            <video class="img-fluid" controls>
-                <source src="<?= base_url('assets/file/' . $kuis['file']) ?>" type="video/mp4">
-            </video>
 
         </div>
         <div class="card-footer">
@@ -20,5 +20,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('body').addClass('sidebar-collapse');
+    })
+</script>
 
 <?= $this->endsection(); ?>

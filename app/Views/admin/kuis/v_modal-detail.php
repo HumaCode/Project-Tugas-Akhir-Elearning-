@@ -67,27 +67,7 @@ $format = substr($file, -4);
                         </div>
                     </div>
 
-                <?php } else if ($format == '.mp4') { ?>
-
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-
-                            <a href="<?= base_url('admin/lihatVideoKuis/' . $id_kuis . '/' . $id_kursus . '/' . $id_sub_kursus) ?>">
-                                <img src="<?= base_url('assets/img/video.png') ?>" class="img-fluid" alt="">
-                            </a>
-                            <p>Gambar</p>
-
-                        </div>
-                        <div class="col-md-8">
-                            <h3><?= $nama_kuis ?></h3>
-
-                            <p class="text-justify"><?= $kuis ?></p>
-
-                            <a href="<?= base_url('admin/downloadFileKuis/' . $id_kuis) ?>" target="_blank"> Download File</a>
-                        </div>
-                    </div>
-
-                <?php } ?>
+                <?php }  ?>
 
             </div>
             <div class="modal-footer">

@@ -10,7 +10,7 @@ class ModelKuis extends Model
     protected $primaryKey = 'id_kuis';
     protected $useTimestamps = false;
 
-    protected $allowedFields = ['id_kursus', 'id_sub_kursus', 'nama_kuis', 'pertemuan', 'file', 'kuis', 'dibuat'];
+    protected $allowedFields = ['id_kursus', 'id_sub_kursus', 'nama_kuis', 'pertemuan', 'file', 'url', 'kuis', 'dibuat'];
 
     public function tampilData($id_sub_kursus, $id_kursus)
     {

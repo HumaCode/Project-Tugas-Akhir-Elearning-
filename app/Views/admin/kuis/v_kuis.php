@@ -76,14 +76,20 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                             <td><?= $k['nama_kuis'] ?></td>
                             <td class="text-center"><?= $k['pertemuan'] ?></td>
                             <td class="text-center" width="200">
-                                <?php if ($k['file'] == 'Tidak ada file') { ?>
+                                <?php if ($k['file'] == 'Tidak ada file' && $k['url'] == null) { ?>
                                     Tidak ada file
-                                <?php } else { ?>
+                                <?php } else if ($k['file'] != 'Tidak ada file' && $k['url'] == null) { ?>
                                     Menggunakan File
+                                <?php } else if ($k['file'] == 'Tidak ada file' && $k['url'] != null) { ?>
+                                    Embed Youtube
                                 <?php } ?>
                             </td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $k['id_kuis'] ?>')"><i class="fa fa-eye"></i></button>
+                                <?php if ($k['url'] == null) { ?>
+                                    <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $k['id_kuis'] ?>')"><i class="fa fa-eye"></i></button>
+                                <?php } else { ?>
+                                    <a href="<?= base_url('admin/lihatVideoKuis/' . $k['id_kuis'] . '/' . $k['id_kursus'] . '/' . $k['id_sub_kursus']) ?>" class="btn btn-primary btn-flat btn-xs"><i class="fa fa-eye"></i></a>
+                                <?php } ?>
 
                                 <a href="<?= base_url('admin/editKuis/' . $k['id_kuis'] . '/' . $k['id_sub_kursus'] . '/' . $k['id_kursus']) ?>" class="btn btn-success btn-flat btn-xs"><i class="fas fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-flat btn-xs" onclick="hapus('<?= $k['id_kuis'] ?>')"><i class="fas fa-trash"></i></button>

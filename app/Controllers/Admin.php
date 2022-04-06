@@ -2818,6 +2818,13 @@ class Admin extends BaseController
                     'required' => '{field} tidak boleh kosong..!!',
                 ]
             ],
+            'file' => [
+                'label' => 'File',
+                'rules' => 'max_size[file,1048]',
+                'errors' => [
+                    'max_size' => '{field} maksimal 1 MB..!!',
+                ]
+            ],
             'ket' => [
                 'label' => 'Keterangan',
                 'rules' => 'required',
@@ -2829,12 +2836,19 @@ class Admin extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'id_kursus'         => $id_kursus,
                     'id_sub_kursus'     => $id_sub_kursus,
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => 'Tidak ada file',
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -2846,6 +2860,7 @@ class Admin extends BaseController
                     'id_sub_kursus'     => $id_sub_kursus,
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => $nama_file,
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -2911,13 +2926,27 @@ class Admin extends BaseController
                     'required' => '{field} tidak boleh kosong..!!',
                 ]
             ],
+            'file' => [
+                'label' => 'File',
+                'rules' => 'max_size[file,1024]',
+                'errors' => [
+                    'max_size' => '{field} maksimal 1 MB..!!',
+                ]
+            ],
         ])) {
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -2936,6 +2965,7 @@ class Admin extends BaseController
                 $data = [
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => $nama_file,
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -2969,6 +2999,7 @@ class Admin extends BaseController
                 'id_kursus'     => $row['id_kursus'],
                 'id_sub_kursus' => $row['id_sub_kursus'],
                 'nama_file'     => $row['nama_file'],
+                'url'           => $row['url'],
                 'ket'           => $row['ket'],
             ];
 
@@ -3007,8 +3038,10 @@ class Admin extends BaseController
             // hapus file 
             $materi = $this->ModelMateri->find($id_materi);
 
-            if ($materi['nama_file'] != "") {
-                unlink('assets/file/' . $materi['nama_file']);
+            if ($materi['nama_file'] != 'Tidak ada file') {
+                if ($materi['nama_file'] != "") {
+                    unlink('assets/file/' . $materi['nama_file']);
+                }
             }
 
             // hapus data 
@@ -3078,9 +3111,9 @@ class Admin extends BaseController
             ],
             'file' => [
                 'label' => 'File',
-                'rules' => 'max_size[file,20024]',
+                'rules' => 'max_size[file,1048]',
                 'errors' => [
-                    'max_size' => 'Maksimal 20 MB.!!',
+                    'max_size' => '{field} maksimal 1 MB..!!',
                 ]
             ],
             'kuis' => [
@@ -3094,6 +3127,12 @@ class Admin extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'id_kursus'         => $id_kursus,
@@ -3101,6 +3140,7 @@ class Admin extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => 'Tidak ada file',
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -3113,6 +3153,7 @@ class Admin extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => $nama_file,
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -3223,9 +3264,9 @@ class Admin extends BaseController
             ],
             'file' => [
                 'label' => 'File',
-                'rules' => 'max_size[file,20024]',
+                'rules' => 'max_size[file,1048]',
                 'errors' => [
-                    'max_size' => 'Maksimal 20 MB.!!',
+                    'max_size' => '{field} maksimal 1 MB..!!',
                 ]
             ],
             'kuis' => [
@@ -3239,11 +3280,18 @@ class Admin extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => 'Tidak ada file',
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -3263,6 +3311,7 @@ class Admin extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => $nama_file,
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
