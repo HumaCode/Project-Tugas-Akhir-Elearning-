@@ -9,15 +9,21 @@
 
             <div class="card-tools">
 
+                <?php if (isset($nilai)) { ?>
+                    <?php if ($nilai['url'] == null) { ?>
+                        <button type="button" onclick="detail('<?= $nilai['id_kuis'] ?>')" class="btn btn-warning btn-xs">
+                            <i class="fa fa-eye"></i> &nbsp; Lihat Soal
+                        </button>
+                    <?php } else { ?>
+                        <a href="<?= base_url('guru/lihatVideoKuis/' . $nilai['id_kuis'] . '/' . $nilai['id_kursus'] . '/' . $nilai['id_sub_kursus']) ?>" target="_blank" class="btn btn-warning btn-xs">
+                            <i class="fa fa-eye"></i> &nbsp; Lihat Soal
+                        </a>
+                    <?php } ?>
 
-
-                <button type="button" onclick="detail('<?= $nilai['id_kuis'] ?>')" class="btn btn-warning btn-xs">
-                    <i class="fa fa-eye"></i> &nbsp; Lihat Soal
-                </button>
-
-                <a href="<?= base_url('guru/cetakNilai/' . $nilai['id_kuis'] . '/' . $id_sub_kursus . '/' . $id_kursus) ?>" target="_blank" class="btn btn-success btn-xs">
-                    <i class="fa fa-print"></i> &nbsp; Cetak
-                </a>
+                    <a href="<?= base_url('guru/cetakNilai/' . $id_kuis . '/' . $id_sub_kursus . '/' . $id_kursus) ?>" target="_blank" class="btn btn-success btn-xs">
+                        <i class="fa fa-print"></i> &nbsp; Cetak
+                    </a>
+                <?php } ?>
             </div>
         </div>
 

@@ -368,6 +368,39 @@ class Siswa extends BaseController
         }
     }
 
+    public function lihatVideoKuis($id_kuis, $id_kursus, $id_sub_kursus)
+    {
+        $uri_id_kursus      = $this->request->uri->getSegment(4);
+        $uri_id_sub_kursus  = $this->request->uri->getSegment(5);
+
+        $username           = session()->get('username');
+        $kursus             = $this->ModelKursus->tampilDataById($uri_id_kursus);
+        $sub_kursus         = $this->ModelSubKursus->tampilDataById($uri_id_sub_kursus);
+
+        // ambil data siswa berdasarkan username/session username
+        $siswa = $this->ModelSiswa->tampilSiswaByUsername($username);
+
+        $data = [
+            'title'         => 'Kuis ' . $kursus['mapel'] . ' ' . $kursus['kelas'],
+            'icon'          => '<i class="fas fa-graduation-cap"></i>',
+            'kuis'          => $this->ModelKuis->find($id_kuis),
+            'id_kursus'     => $id_kursus,
+            'id_sub_kursus' => $id_sub_kursus,
+            'id_kuis'       => $id_kuis,
+            'validation'    => \Config\Services::validation()
+        ];
+
+        if ($kursus['id_kelas'] == $siswa['kelas_id'] && $kursus['id_kursus'] == $sub_kursus['id_kursus']) {
+            return view('siswa/kuis/v_lihat-video', $data);
+        } else {
+            $data2 = [
+                'title' => 'Halaman Tidak Tersedia',
+                'icon'  => ''
+            ];
+            return view('siswa/v_forbidden', $data2);
+        }
+    }
+
     public function kuis($id_sub_kursus, $id_kursus)
     {
         $uri_id_kursus      = $this->request->uri->getSegment(4);
@@ -449,6 +482,8 @@ class Siswa extends BaseController
         $sesi           = session()->get('username');
         $siswa          = $this->ModelSiswa->tampilSiswaByUsername($sesi);
 
+        $kuis           = $this->ModelKuis->find($id_kuis);
+
 
         // validasi
         if ($this->validate([
@@ -461,9 +496,9 @@ class Siswa extends BaseController
             ],
             'file' => [
                 'label' => 'File',
-                'rules' => 'max_size[file,20024]',
+                'rules' => 'max_size[file,2024]',
                 'errors' => [
-                    'max_size' => 'Maksimal 20 MB.!!',
+                    'max_size' => 'Maksimal 2 MB.!!',
                 ]
             ],
         ])) {
@@ -504,7 +539,11 @@ class Siswa extends BaseController
             return redirect()->to('siswa/lihatKuis/' . $id_kuis . '/'  . $id_kursus . '/' . $id_sub_kursus);
         } else {
             // jika tidak valid
-            return redirect()->to('siswa/lihatKuis/' . $id_kuis . '/'  . $id_kursus . '/' . $id_sub_kursus)->withInput();
+            if ($kuis['url'] == null) {
+                return redirect()->to('siswa/lihatKuis/' . $id_kuis . '/'  . $id_kursus . '/' . $id_sub_kursus)->withInput();
+            } else {
+                return redirect()->to('siswa/lihatVideoKuis/' . $id_kuis . '/'  . $id_kursus . '/' . $id_sub_kursus)->withInput();
+            }
         }
     }
 

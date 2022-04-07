@@ -881,6 +881,13 @@ class Guru extends BaseController
                     'required' => '{field} tidak boleh kosong..!!',
                 ]
             ],
+            'file' => [
+                'label' => 'File',
+                'rules' => 'max_size[file,1048]',
+                'errors' => [
+                    'max_size' => '{field} maksimal 1 MB..!!',
+                ]
+            ],
             'ket' => [
                 'label' => 'Keterangan',
                 'rules' => 'required',
@@ -892,12 +899,19 @@ class Guru extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'id_kursus'         => $id_kursus,
                     'id_sub_kursus'     => $id_sub_kursus,
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => 'Tidak ada file',
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -909,6 +923,7 @@ class Guru extends BaseController
                     'id_sub_kursus'     => $id_sub_kursus,
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => $nama_file,
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -981,6 +996,13 @@ class Guru extends BaseController
                     'required' => '{field} tidak boleh kosong..!!',
                 ]
             ],
+            'file' => [
+                'label' => 'File',
+                'rules' => 'max_size[file,1024]',
+                'errors' => [
+                    'max_size' => '{field} maksimal 1 MB..!!',
+                ]
+            ],
             'ket' => [
                 'label' => 'Keterangan',
                 'rules' => 'required',
@@ -992,9 +1014,16 @@ class Guru extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1013,6 +1042,7 @@ class Guru extends BaseController
                 $data = [
                     'judul'             => htmlspecialchars($this->request->getVar('judul')),
                     'nama_file'         => $nama_file,
+                    'url'               => $url,
                     'ket'               => $this->request->getVar('ket'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1200,9 +1230,9 @@ class Guru extends BaseController
             ],
             'file' => [
                 'label' => 'File',
-                'rules' => 'max_size[file,20024]',
+                'rules' => 'max_size[file,1048]',
                 'errors' => [
-                    'max_size' => 'Maksimal 20 MB.!!',
+                    'max_size' => '{field} maksimal 1 MB..!!',
                 ]
             ],
             'kuis' => [
@@ -1216,6 +1246,12 @@ class Guru extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = null;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'id_kursus'         => $id_kursus,
@@ -1223,6 +1259,7 @@ class Guru extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => 'Tidak ada file',
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1235,6 +1272,7 @@ class Guru extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => $nama_file,
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1488,6 +1526,7 @@ class Guru extends BaseController
             'icon'          => '<i class="fa fa-file"></i>',
             'jawaban'       => $this->ModelJawaban->tampilJawabanById($id_kuis, $id_kursus, $id_sub_kursus),
             'nilai'         => $this->ModelJawaban->tampilNilaiById($id_kuis, $id_kursus, $id_sub_kursus),
+            'id_kuis'       => $id_kuis,
             'id_kursus'     => $id_kursus,
             'id_sub_kursus' => $id_sub_kursus,
         ];
@@ -1548,6 +1587,7 @@ class Guru extends BaseController
                 'id_sub_kursus' => $row['id_sub_kursus'],
                 'nama_kuis'     => $row['nama_kuis'],
                 'file'          => $row['file'],
+                'url'           => $row['url'],
                 'kuis'          => $row['kuis'],
             ];
 

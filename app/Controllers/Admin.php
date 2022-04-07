@@ -793,7 +793,7 @@ class Admin extends BaseController
                 $this->ModelSiswa->tambah($simpanSiswa);
 
                 $msg = [
-                    'success'  => 'Data user berhasil disimpan'
+                    'success'  => 'Data siswa berhasil disimpan'
                 ];
             }
             echo json_encode($msg);

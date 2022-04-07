@@ -127,17 +127,6 @@ $format = substr($kuis['file'], -4);
                                 </div>
                             </div>
 
-                        <?php } else if ($format == '.mp4') { ?>
-                            <div class="row">
-                                <p class="text-justify"><?= $kuis['kuis'] ?></p>
-                                <div class="col-md-12 text-center">
-
-                                    <video class="img-fluid " style="border-radius: 30px;" controls>
-                                        <source src="<?= base_url('assets/file/' . $kuis['file']) ?>" type="video/mp4">
-                                    </video>
-
-                                </div>
-                            </div>
                         <?php } ?>
 
                     </div>

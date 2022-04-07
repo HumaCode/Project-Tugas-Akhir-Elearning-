@@ -109,20 +109,6 @@ $format = substr($materi['nama_file'], -4);
 
                             </div>
                         </div>
-                    <?php } else if ($format == '.mp4') { ?>
-                        <div class="row">
-                            <div class="col-md-4 text-center">
-
-                                <img src="<?= base_url('assets/img/video.png') ?>" class="img-fluid" alt=""> <br>
-
-                                <a href="<?= base_url('siswa/lihatVideoMateri/' . $materi['id_materi'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="badge badge-success">lihat</a>
-                            </div>
-                            <div class="col-md-8">
-
-                                <p class="text-justify"><?= $materi['ket'] ?></p>
-
-                            </div>
-                        </div>
                     <?php } ?>
 
                 </div>

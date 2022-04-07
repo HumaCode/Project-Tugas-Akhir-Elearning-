@@ -14,6 +14,7 @@
         <?php } else { ?>
 
             <div class="col-md-12">
+                <!--  -->
                 <?php if (!empty($absen['id_absen'])) { ?>
                     <?php if ($absen['absen'] == 0) { ?>
                         <marquee behavior="" direction="" class="text-danger">Jangan lupa untuk melakukan absensi</marquee>
@@ -41,13 +42,21 @@
                         <button id="mulai" class="btn btn-secondary btn-sm"></button>
 
                     <?php } ?>
+                <?php } else { ?>
+                    <div id="mulai" style="display: none;"></div>
                 <?php } ?>
             </div>
 
             <hr>
 
             <?php foreach ($materi as $m) :  ?>
-                <li class="list-group-item mb-2 bg-lightblue" style="border-radius: 10px;"><strong><?= $m['judul'] ?></strong> <span class="badge badge-warning float-right "><a href="<?= base_url('siswa/lihatMateri/' . $m['id_materi'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span></li>
+                <li class="list-group-item mb-2 bg-lightblue" style="border-radius: 10px;"><strong><?= $m['judul'] ?></strong> <span class="badge badge-warning float-right ">
+                        <?php if ($m['url'] == null) { ?>
+                            <a href="<?= base_url('siswa/lihatMateri/' . $m['id_materi'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span>
+                <?php } else { ?>
+                    <a href="<?= base_url('siswa/lihatVideoMateri/' . $m['id_materi'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span>
+                <?php } ?>
+                </li>
             <?php endforeach; ?>
 
         <?php } ?>

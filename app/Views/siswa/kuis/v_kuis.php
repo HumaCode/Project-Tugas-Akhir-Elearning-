@@ -14,7 +14,15 @@
         <?php } else { ?>
             <ul class="list-group">
                 <?php foreach ($kuis as $k) :  ?>
-                    <li class="list-group-item mb-2 bg-lightblue" style="border-radius: 10px;"> <strong><?= $k['pertemuan'] . '. ' . $k['nama_kuis'] ?></strong> <span class="badge badge-warning float-right "><a href="<?= base_url('siswa/lihatKuis/' . $k['id_kuis'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span></li>
+                    <li class="list-group-item mb-2 bg-lightblue" style="border-radius: 10px;"> <strong><?= $k['pertemuan'] . '. ' . $k['nama_kuis'] ?></strong> <span class="badge badge-warning float-right ">
+                            <?php if ($k['url'] == null) { ?>
+                                <a href="<?= base_url('siswa/lihatKuis/' . $k['id_kuis'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span>
+                    <?php } else { ?>
+                        <a href="<?= base_url('siswa/lihatVideoKuis/' . $k['id_kuis'] . '/' . $id_kursus . '/' . $id_sub_kursus) ?>" class="text-dark">Lihat</a></span>
+                    <?php } ?>
+
+
+                    </li>
                 <?php endforeach; ?>
             </ul>
             <hr>
