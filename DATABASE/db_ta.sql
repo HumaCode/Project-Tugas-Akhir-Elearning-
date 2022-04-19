@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2022 pada 10.21
+-- Waktu pembuatan: 19 Apr 2022 pada 11.32
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.0.15
 
@@ -150,6 +150,7 @@ CREATE TABLE `tb_kuis` (
   `nama_kuis` varchar(125) DEFAULT NULL,
   `pertemuan` int(11) DEFAULT NULL,
   `file` varchar(100) DEFAULT NULL,
+  `url` varchar(20) DEFAULT NULL,
   `kuis` text DEFAULT NULL,
   `dibuat` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -181,13 +182,6 @@ CREATE TABLE `tb_mapel` (
   `mapel` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `tb_mapel`
---
-
-INSERT INTO `tb_mapel` (`id_mapel`, `mapel`) VALUES
-(22, 'Bahasa Jawa');
-
 -- --------------------------------------------------------
 
 --
@@ -200,6 +194,7 @@ CREATE TABLE `tb_materi` (
   `id_sub_kursus` int(11) NOT NULL,
   `judul` varchar(100) DEFAULT NULL,
   `nama_file` varchar(125) NOT NULL,
+  `url` text DEFAULT NULL,
   `ket` text DEFAULT NULL,
   `dibuat` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -240,7 +235,7 @@ CREATE TABLE `tb_setting` (
 --
 
 INSERT INTO `tb_setting` (`id_setting`, `desk1`, `desk2`, `desk3`, `desk4`, `nama_sekolah`, `npsn`, `jenjang`, `status_sekolah`, `alamat`, `rt`, `rw`, `kd_pos`, `kelurahan`, `kecamatan`, `kabupaten`, `email`, `fb`, `tlp`, `map`, `foto`, `logo`) VALUES
-(1, 'Pembelajaran elektronik atau pembelajaran online yang disebut E-Learning adalah pembelajaran formal maupun non formal yang dilakukan dengan memanfaatkan teknologi, sehingga pelajar dan pengajar melakukan proses belajar mengajar menggunakan media elektronik. E-Learning dilakukan dalam jaringan, siswa dan guru bisa mengaksesnya di mana saja dan kapan saja. Pembelajaran elektronik atau pembelajaran online yang disebut E-Learning adalah pembelajaran formal maupun non formal yang dilakukan dengan memanfaatkan teknologi, sehingga pelajar dan pengajar melakukan proses belajar mengajar menggunakan media elektronik. E-Learning dilakukan dalam jaringan, siswa dan guru bisa mengaksesnya di mana saja dan kapan saja.', 'E-Learning yang sering ada biasanya berbentuk kursus online, seminar online, dan lain sebagainya. Umumnya E-Learning dilakukan melalui perantara internet berbasis web, semua materi, kuis dan bahan ajar bisa diakses pada web tersebut. Materi yang ada bisa berupa teks yang diformat menjadi bentuk file pdf, berbentuk suara, ada juga yang berbentuk streaming YouTube. Perkembangan ini bisa membantu Anda untuk lebih memahami materi yang diajarkan secara lebih detail.', 'Elearning merupakan salah satu cara yang sangat efisien untuk menyampaikan kursus atau pembelajaran secara online. Karena kenyamanan dan fleksibilitasnya, sumber daya tersedia dari mana saja dan kapan saja. Setiap orang, yang merupakan siswa paruh waktu atau bekerja penuh waktu, dapat memanfaatkan pembelajaran berbasis web.', 'Beberapa keunggulan lain yang dimiliki oleh pembelajaran secara online adalah siswa diberi kebebasan untuk mengikuti pembelajaran online dimanapun sesuai kenyamanannya. Selain itu biaya yang dikeluarkan juga terbilang hemat, karena kendala geografis bisa diatasi dengan minimnya kebutuhan ruang kelas dan guru yang mengajar. (sumber - idcloudhost.com/apa-itu-e-learning-pengertian-rekomendasi-contoh-dan-cara-install-nya/)', 'SD Negeri 01 Wiroditan', '20323610', 'SD', 'Negeri', 'Jl. Raya Wiroditan No. 45', '9', '2', 51156, 'Wiroditan', 'Kec. Bojong', 'Kab. Pekalongan', 'example@gmail.com', 'example.fb', '3423422353', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4389889868453!2d109.60670637516947!3d-6.957430570049165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7021f824a1995d%3A0x1703491ec8e857d2!2sSDN%2001%20WIRODITAN!5e0!3m2!1sid!2sid!4v1647778378734!5m2!1sid!2sid', '20220205.png', '1647842221_d1dce47768f5b6ebd1e0.png');
+(1, 'Pembelajaran elektronik atau pembelajaran online yang disebut E-Learning adalah pembelajaran formal maupun non formal yang dilakukan dengan memanfaatkan teknologi, sehingga pelajar dan pengajar melakukan proses belajar mengajar menggunakan media elektronik. E-Learning dilakukan dalam jaringan, siswa dan guru bisa mengaksesnya di mana saja dan kapan saja. Pembelajaran elektronik atau pembelajaran online yang disebut E-Learning adalah pembelajaran formal maupun non formal yang dilakukan dengan memanfaatkan teknologi, sehingga pelajar dan pengajar melakukan proses belajar mengajar menggunakan media elektronik. E-Learning dilakukan dalam jaringan, siswa dan guru bisa mengaksesnya di mana saja dan kapan saja.', 'E-Learning yang sering ada biasanya berbentuk kursus online, seminar online, dan lain sebagainya. Umumnya E-Learning dilakukan melalui perantara internet berbasis web, semua materi, kuis dan bahan ajar bisa diakses pada web tersebut. Materi yang ada bisa berupa teks yang diformat menjadi bentuk file pdf, berbentuk suara, ada juga yang berbentuk streaming YouTube. Perkembangan ini bisa membantu Anda untuk lebih memahami materi yang diajarkan secara lebih detail.', 'Elearning merupakan salah satu cara yang sangat efisien untuk menyampaikan kursus atau pembelajaran secara online. Karena kenyamanan dan fleksibilitasnya, sumber daya tersedia dari mana saja dan kapan saja. Setiap orang, yang merupakan siswa paruh waktu atau bekerja penuh waktu, dapat memanfaatkan pembelajaran berbasis web.', 'Beberapa keunggulan lain yang dimiliki oleh pembelajaran secara online adalah siswa diberi kebebasan untuk mengikuti pembelajaran online dimanapun sesuai kenyamanannya. Selain itu biaya yang dikeluarkan juga terbilang hemat, karena kendala geografis bisa diatasi dengan minimnya kebutuhan ruang kelas dan guru yang mengajar. (sumber - idcloudhost.com/apa-itu-e-learning-pengertian-rekomendasi-contoh-dan-cara-install-nya/)', 'SD Negeri 01 Wiroditan', '20323610', 'SD', 'Negeri', 'Jl. Raya Wiroditan No. 45', '9', '2', 51156, 'Wiroditan', 'Kec. Bojong', 'Kab. Pekalongan', 'example@gmail.com', 'example.fb', '3423422353', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4389889868453!2d109.60670637516947!3d-6.957430570049165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7021f824a1995d%3A0x1703491ec8e857d2!2sSDN%2001%20WIRODITAN!5e0!3m2!1sid!2sid!4v1647778378734!5m2!1sid!2sid', '20220205.png', '1649691396_fc362b246b01de98b436.png');
 
 -- --------------------------------------------------------
 
@@ -271,6 +266,7 @@ CREATE TABLE `tb_sub_kursus` (
   `id_kursus` int(11) NOT NULL,
   `sub_kursus` varchar(125) NOT NULL,
   `id_ta` int(11) DEFAULT NULL,
+  `tipe` int(1) NOT NULL,
   `mulai` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -454,31 +450,31 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_absen`
 --
 ALTER TABLE `tb_absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=494;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_chating`
 --
 ALTER TABLE `tb_chating`
-  MODIFY `id_chating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_chating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jawaban`
 --
 ALTER TABLE `tb_jawaban`
-  MODIFY `id_jawaban` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_jawaban` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kelas`
@@ -490,19 +486,19 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT untuk tabel `tb_kritik`
 --
 ALTER TABLE `tb_kritik`
-  MODIFY `id_kritik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kritik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kuis`
 --
 ALTER TABLE `tb_kuis`
-  MODIFY `id_kuis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_kuis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kursus`
 --
 ALTER TABLE `tb_kursus`
-  MODIFY `id_kursus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_kursus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_mapel`
@@ -514,19 +510,19 @@ ALTER TABLE `tb_mapel`
 -- AUTO_INCREMENT untuk tabel `tb_materi`
 --
 ALTER TABLE `tb_materi`
-  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sub_kursus`
 --
 ALTER TABLE `tb_sub_kursus`
-  MODIFY `id_sub_kursus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_sub_kursus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_ta`
@@ -538,7 +534,7 @@ ALTER TABLE `tb_ta`
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
