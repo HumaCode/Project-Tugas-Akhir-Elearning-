@@ -19,13 +19,7 @@ $format = substr($file, -4);
                 <?php if ($format == 'file') { ?>
 
                     <div class="row">
-                        <div class="col-md-4 text-center">
-
-                            <img src="<?= base_url('assets/img/no-file.png') ?>" class="img-fluid" alt="">
-                            <p>Tidak ada file</p>
-
-                        </div>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <h3><?= $nama_kuis ?></h3>
 
                             <p class="text-justify"><?= $kuis ?></p>

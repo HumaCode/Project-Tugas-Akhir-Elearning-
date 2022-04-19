@@ -7,10 +7,20 @@
         <div class="card-header">
             <h3 class="card-title">Preview Video</h3>
         </div>
-        <div class="card-body text-center">
+        <div class="card-body">
 
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" style="border-color: white;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="row">
+                <div class="col-md-8 mb-2">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" style="border-color: white;  border-radius: 20px;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="col-md-4 bg-cyan p-3 mb-2" style="border-radius: 20px;">
+                    <small>Keterangan :</small>
+                    <p class="text-justify"><?= $kuis['kuis'] ?></p>
+                </div>
             </div>
 
         </div>

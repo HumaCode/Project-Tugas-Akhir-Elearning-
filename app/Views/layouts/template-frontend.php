@@ -98,7 +98,10 @@ $setting = $db->table('tb_setting')
                                 <a href="<?= base_url('siswa') ?>" class="nav-link <?= ($title == 'Home') ? 'active' : '' ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= base_url('siswa/kursus') ?>" class="nav-link <?= ($title == 'Kursus Saya') ? 'active' : '' ?>">Kursus Saya</a>
+                                <a href="<?= base_url('siswa/kursus') ?>" class="nav-link 
+                                <?php if ($title == 'Kursus Saya') { ?>
+                                    active
+                                <?php } ?> ">Kursus Saya</a>
                             </li>
                         </ul>
 

@@ -8,9 +8,11 @@
             <h3 class="card-title">Daftar Nilai</h3>
 
             <div class="card-tools">
-                <a href="<?= base_url('admin/cetakNilai/' . $nilai['id_kuis'] . '/' . $id_sub_kursus . '/' . $id_kursus) ?>" target="_blank" class="btn btn-success btn-xs">
-                    <i class="fa fa-print"></i> &nbsp; Cetak
-                </a>
+                <?php if (isset($nilai)) { ?>
+                    <a href="<?= base_url('admin/cetakNilai/' . $nilai['id_kuis'] . '/' . $id_sub_kursus . '/' . $id_kursus) ?>" target="_blank" class="btn btn-success btn-xs">
+                        <i class="fa fa-print"></i> &nbsp; Cetak
+                    </a>
+                <?php } ?>
             </div>
         </div>
 

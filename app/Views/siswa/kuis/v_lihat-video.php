@@ -16,42 +16,6 @@
 </style>
 <?= $this->endsection(); ?>
 
-<?php
-
-
-date_default_timezone_set('Asia/Jakarta');
-
-// function tanggal indo
-function tanggal_indonesia($tgl, $tampil_hari = true)
-{
-    $nama_hari = array(
-        'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu'
-    );
-
-    $nama_bulan = array(
-        1 =>
-        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-    );
-
-    // format tanggal php
-    //  2021-11-26
-
-    $tahun = substr($tgl, 0, 4);
-    $bulan = $nama_bulan[(int) substr($tgl, 5, 2)];
-    $tanggal = substr($tgl, 8, 2);
-    $text = '';
-
-    if ($tampil_hari) {
-        $urutan_hari = date('w', mktime(0, 0, 0, substr($tgl, 5, 2), $tanggal, $tahun));
-        $hari = $nama_hari[$urutan_hari];
-        $text .= "$hari, $tanggal $bulan $tahun";
-    } else {
-        $text .= "$tanggal $bulan $tahun";
-    }
-    return $text;
-}
-
-?>
 
 <div class="col-md-12">
     <div class="card card-outline card-cyan">
@@ -64,23 +28,14 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
             <div class="row">
 
 
-                <div class="col-md-12">
-                    <label for=""><strong>Soal :</strong></label>
-                    <p class="text-justify">
-                        <?= $kuis['kuis'] ?>
-                    </p>
-                </div>
-
-
-                <div class="col-md-8">
-
+                <div class="col-md-8 mb-2">
 
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" style="border-color: white;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" style="border-color: white; border-radius: 20px;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-2">
                     <div class="card p-3 detail">
                         <table>
                             <tr>
@@ -102,8 +57,20 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
                             </tr>
                         </table>
                     </div>
+
+                    <div class="card p-3 detail">
+                        <table>
+                            <tr>
+                                <td width="100">Keterangan :</td>
+                            </tr>
+                        </table>
+                        <p class="text-justify"><?= $kuis['kuis'] ?></p>
+                    </div>
                 </div>
+
             </div>
+
+            <hr>
 
             <?= form_open_multipart('siswa/jawab') ?>
             <?= csrf_field() ?>
