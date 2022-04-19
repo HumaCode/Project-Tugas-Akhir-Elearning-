@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" href="<?= base_url('assets/img/logo.png') ?>" type="image*">
+    <link rel="icon" href="<?= base_url('assets/img/' . $setting['logo']) ?>" type="image*">
 
 
     <!-- Bootstrap CSS -->

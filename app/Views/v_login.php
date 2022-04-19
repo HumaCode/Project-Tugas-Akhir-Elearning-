@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Elearning | <?= $title ?></title>
 
-    <link rel="icon" href="<?= base_url('assets/img/logo.png') ?>" type="image*">
+    <link rel="icon" href="<?= base_url('assets/img/' . $setting['logo']) ?>" type="image*">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

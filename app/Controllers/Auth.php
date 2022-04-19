@@ -4,19 +4,24 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelAuth;
+use App\Models\ModelSetting;
 
 class Auth extends BaseController
 {
     public function __construct()
     {
-        $this->ModelAuth = new ModelAuth();
+        $this->ModelAuth    = new ModelAuth();
+        $this->ModelSetting = new ModelSetting();
     }
 
     public function index()
     {
+        $id_setting = 1;
+
         $data = [
             'title' => 'Login Guru & Admin',
-            'validation' =>  \Config\Services::validation()
+            'validation' =>  \Config\Services::validation(),
+            'setting' => $this->ModelSetting->find($id_setting)
         ];
 
         return view('v_login', $data);
