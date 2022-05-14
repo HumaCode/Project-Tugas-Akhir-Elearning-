@@ -162,8 +162,12 @@
                             dataMapel();
                         }
                     },
-                    error: function(xhr, ajaxOption, thrownError) {
-                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Perintah tidak dapat diproses.!!',
+                        })
                     }
                 })
             }

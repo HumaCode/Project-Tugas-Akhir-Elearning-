@@ -49,7 +49,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> Kembali</button>
+                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> &nbsp;Kembali</button>
             </div>
         </div>
     </div>

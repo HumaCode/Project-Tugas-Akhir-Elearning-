@@ -9,24 +9,14 @@
             <h3 class="card-title">Semua Kursus</h3>
 
             <div class="card-tools">
-                <a href="<?= base_url('admin/kursus') ?>" class="btn btn-warning btn-flat btn-xs"><i class="fas fa-redo-alt"></i> &nbsp;Segarkan</a>
+                <?php if (!empty($kursus)) { ?>
+                    <a href="<?= base_url('admin/kursus') ?>" class="btn btn-warning btn-flat btn-xs"><i class="fas fa-redo-alt"></i> &nbsp;Segarkan</a>
+                <?php } ?>
                 <button type="button" class="btn bg-cyan btn-flat btn-xs tombol-tambah"><i class="fas fa-plus"></i> &nbsp;Tambah</button>
             </div>
         </div>
         <div class="card-body">
             <div class="row">
-
-                <div class="col-md-12">
-
-                    <!-- pencarian -->
-                    <form class="form-inline float-right">
-                        <label class="sr-only" for="keyword">Name</label>
-                        <input type="text" class="form-control mb-3 mr-sm-2" name="keyword" id="keyword" placeholder="Pencarian">
-
-                        <button type="submit" class="btn bg-cyan mb-3" name="submit"> Cari</button>
-                    </form>
-
-                </div>
                 <hr>
 
                 <?php if (empty($kursus)) { ?>
@@ -39,6 +29,18 @@
 
 
                     <?php foreach ($kursus as $k) { ?>
+                        <div class="col-md-12">
+
+                            <!-- pencarian -->
+                            <form class="form-inline">
+                                <label class="sr-only" for="keyword">Name</label>
+                                <input type="text" class="form-control mb-3 mr-sm-2" name="keyword" id="keyword" placeholder="Pencarian">
+
+                                <button type="submit" class="btn bg-cyan mb-3" name="submit"> Cari</button>
+                            </form>
+
+                        </div>
+
                         <div class="col-md-6 col-lg-6 col-xl-4 mb-2">
                             <div class="card mb-2" style="border-radius: 10px;">
                                 <img class="card-img-top" src="<?= base_url('/assets/img/' . $k['gambar']) ?>" alt="Dist Photo 3" style="opacity: 0.7; border-radius: 10px;">
@@ -52,7 +54,7 @@
                                         Guru : <?= $k['nama_guru'] ?>
                                     </div>
 
-                                    <div class="text-danger mb-2"><?= $k['kelas'] ?></div> <br>
+                                    <div class="text-danger mb-2"><?= $k['kelas'] ?></div>
 
                                     <a href="<?= base_url('admin/subKursus/' . $k['id_kursus']) ?>" class="btn bg-cyan btn-xs btn-flat">Lihat Kursus</a>
                                     <button type="button" onclick="edit(<?= $k['id_kursus'] ?>)" class="btn btn-warning btn-xs btn-flat">Edit</button>

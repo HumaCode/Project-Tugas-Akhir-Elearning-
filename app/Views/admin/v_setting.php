@@ -232,6 +232,8 @@
 
 
 
+
+
     function editFotoSekolah(id_setting) {
         $.ajax({
             type: "post",

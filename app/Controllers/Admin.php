@@ -696,7 +696,7 @@ class Admin extends BaseController
     {
         if ($this->request->isAJAX()) {
             $data = [
-                'kls' => $this->ModelKelas->tampilSemua()
+                'kls' => $this->ModelKelas->where('id_kelas !=', 0)->findAll()
             ];
 
             $msg = [
@@ -1571,7 +1571,8 @@ class Admin extends BaseController
             $this->ModelMapel->delete($id_mapel);
 
             $msg = [
-                'success'  => "$mapel berhasil dihapus"
+                'success'  => "$mapel berhasil dihapus",
+                'err' => "$mapel gagal dihapus"
             ];
 
             echo json_encode($msg);

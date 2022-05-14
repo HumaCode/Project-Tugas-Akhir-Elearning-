@@ -39,8 +39,6 @@
         <div id="collapseOne" class="collapse" data-parent="#accordion">
             <div class="card-body">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">* Jika statusnya admin ataupun guru, username boleh di isi NIP ataupun yang lainya.</li>
-                    <li class="list-group-item">* Untuk user siswa, kolom email boleh di kosongkan, jika punya boleh di isi.</li>
                     <li class="list-group-item">* Petunjuk import data guru dengan excel <a href="" data-toggle="modal" data-target="#guru">Klik Disini</a>.</li>
                 </ul>
             </div>

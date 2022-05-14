@@ -18,7 +18,7 @@
                 <div class="img-thumbnail img-preview d-none"> </div>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> Batal</button>
+                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> &nbsp;Batal</button>
                 <button type="submit" class="btn bg-cyan btn-xs btn-flat btnSimpan"><i class="fas fa-save"></i> &nbsp;Simpan</button>
             </div>
             <?= form_close() ?>

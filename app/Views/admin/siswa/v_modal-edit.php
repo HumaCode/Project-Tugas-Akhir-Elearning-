@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control form-control-sm" style="border-radius: 0px;" name="email" id="email" value="<?= ($email == '-' || $email == null) ? '' : $email ?>">
+                            <small>* Optional</small>
                         </div>
                     </div>
                     <div class="col-md-6">

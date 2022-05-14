@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <table class="float-right">
+                        <table class="">
                             <tr>
                                 <td width="200">Jumlah Siswa Ijin</td>
                                 <td width="20">=</td>

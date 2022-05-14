@@ -37,7 +37,7 @@
                                         Guru : <?= $k['nama_guru'] ?>
                                     </div>
 
-                                    <div class="text-danger mb-2"><?= $k['kelas'] ?></div> <br>
+                                    <div class="text-danger mb-2"><?= $k['kelas'] ?></div>
 
                                     <a href="<?= base_url('guru/subKursus/' . $k['id_kursus']) ?>" class="btn bg-cyan btn-xs btn-flat">Lihat Kursus</a>
                                     <button type="button" onclick="edit(<?= $k['id_kursus'] ?>)" class="btn btn-warning btn-xs btn-flat">Edit</button>

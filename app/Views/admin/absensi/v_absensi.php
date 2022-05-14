@@ -39,8 +39,8 @@
 
                     </div>
 
-                    <div class="col-md-6">
-                        <table class="float-right">
+                    <div class="col-sm-6">
+                        <table class="mr-auto">
                             <tr>
                                 <td width="200">Jumlah Siswa Ijin</td>
                                 <td width="20">=</td>

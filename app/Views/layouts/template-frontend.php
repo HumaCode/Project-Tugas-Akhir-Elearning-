@@ -89,9 +89,9 @@ $setting = $db->table('tb_setting')
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <?php if (session()->get('role') == 3) { ?>
 
-                    <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <?php if (session()->get('role') == 3) { ?>
                         <!-- Left navbar links -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -104,34 +104,36 @@ $setting = $db->table('tb_setting')
                                 <?php } ?> ">Kursus Saya</a>
                             </li>
                         </ul>
+                    <?php } ?>
 
-                    </div>
-                <?php } ?>
+                    <?php if (session()->get('role') == '') { ?>
+
+                    <?php } else if (session()->get('role') == 3) { ?>
+                        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+
+                            <li class="nav-item d-sm-inline-block ">
+                                <a href="<?= base_url('siswa/chat') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><strong><?= session()->get('nama_user') ?></strong></a>
+                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                    <li><a href="<?= base_url('siswa/profil') ?>" class="dropdown-item"><i class="fas fa-user"></i> &nbsp; Profil Saya </a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a href="<?= base_url('login/logout') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout </a></li>
+
+                                    <!-- End Level two -->
+                                </ul>
+                            </li>
+
+                        </ul>
+                    <?php } ?>
+                </div>
+
 
                 <!-- Right navbar links -->
-                <?php if (session()->get('role') == '') { ?>
 
-                <?php } else if (session()->get('role') == 3) { ?>
-                    <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
-                        <li class="nav-item d-sm-inline-block ">
-                            <a href="<?= base_url('siswa/chat') ?>" class="nav-link"> <i class="far fa-comments"></i><span class="badge badge-danger navbar-badge"><?= ($count_inbox == 0) ? '' : $count_inbox ?></span></a>
-                        </li>
-
-
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><strong><?= session()->get('nama_user') ?></strong></a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="<?= base_url('siswa/profil') ?>" class="dropdown-item"><i class="fas fa-user"></i> &nbsp; Profil Saya </a></li>
-                                <li class="dropdown-divider"></li>
-                                <li><a href="<?= base_url('login/logout') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout </a></li>
-
-                                <!-- End Level two -->
-                            </ul>
-                        </li>
-
-                    </ul>
-                <?php } ?>
             </div>
         </nav>
         <!-- /.navbar -->

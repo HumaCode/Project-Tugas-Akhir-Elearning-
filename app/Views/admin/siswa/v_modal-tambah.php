@@ -33,6 +33,7 @@
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control form-control-sm" style="border-radius: 0px;" name="email" id="email" placeholder="Masukan Email">
+                            <small>* Optional</small>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -58,7 +59,7 @@
 
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> Batal</button>
+                <button type="button" class="btn btn-danger btn-xs btn-flat" data-dismiss="modal"><i class="fas fa-ban"></i> &nbsp;Batal</button>
                 <button type="submit" class="btn bg-cyan btn-xs btn-flat btnSimpan"><i class="fas fa-save"></i> &nbsp;Simpan</button>
             </div>
             <?= form_close() ?>
@@ -112,11 +113,11 @@
                             $('#password').remove('is-invalid');
                             $('.errorPassword').html('');
                         }
-                        if (response.error.kelas) {
-                            $('#kelas').addClass('is-invalid');
-                            $('.errorKelas').html(response.error.kelas);
+                        if (response.error.kls) {
+                            $('#kls').addClass('is-invalid');
+                            $('.errorKelas').html(response.error.kls);
                         } else {
-                            $('#kelas').remove('is-invalid');
+                            $('#kls').remove('is-invalid');
                             $('.errorKelas').html('');
                         }
                     } else {
