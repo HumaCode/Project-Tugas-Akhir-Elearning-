@@ -511,7 +511,7 @@ class Guru extends BaseController
         $guru = $this->ModelGuru->tampilGuruByNip($nip);
 
         $data = [
-            'title'         => 'Daftar Anggota Kursus ' . $k,
+            'title'         => 'Daftar Peserta Kursus ' . $k,
             'icon'          => '<i class="fas fa-graduation-cap"></i>',
             'id_kursus'     => $id_kursus,
             'kursusId'      => $this->ModelKursus->tampilDataById($id_kursus),

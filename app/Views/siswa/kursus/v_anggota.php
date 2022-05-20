@@ -5,7 +5,7 @@
 <div class="col-md-12">
     <div class="card card-outline card-cyan">
         <div class="card-header">
-            <h3 class="card-title">Daftar Anggota</h3>
+            <h3 class="card-title">Daftar Peserta</h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">

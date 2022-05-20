@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-12 ">
                     <button type="button" class="btn bg-primary btn-flat btn-sm float-right" onclick="tambah(<?= $kursus['id_kursus'] ?>)"><i class="fas fa-plus"></i>&nbsp; Tambah</button>
-                    <a href="<?= base_url('guru/lihatAnggota/' . $id_kursus) ?>" class="btn btn-success btn-flat btn-sm float-right mr-3"><i class="fas fa-eye"></i>&nbsp; Lihat Anggota</a>
+                    <a href="<?= base_url('guru/lihatAnggota/' . $id_kursus) ?>" class="btn btn-success btn-flat btn-sm float-right mr-3"><i class="fas fa-eye"></i>&nbsp; Lihat Peserta</a>
                 </div>
             </div>
             <hr>

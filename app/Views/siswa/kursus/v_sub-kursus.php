@@ -18,7 +18,7 @@
             <h4>Selamat Datang <?= session()->get('nama_user') ?> di halaman <?= $title . ' ' . $kursus['kelas'] ?></h4>
             <div class="row">
                 <div class="col-md-12 ">
-                    <a href="<?= base_url('siswa/lihatAnggota/' . $id_kursus) ?>" class="btn btn-success btn-flat btn-sm float-right mr-3"><i class="fas fa-eye"></i>&nbsp; Lihat Anggota</a>
+                    <a href="<?= base_url('siswa/lihatAnggota/' . $id_kursus) ?>" class="btn btn-success btn-flat btn-sm float-right mr-3"><i class="fas fa-eye"></i>&nbsp; Lihat Peserta</a>
                 </div>
             </div>
             <hr>

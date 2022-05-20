@@ -5,13 +5,13 @@
 <div class="col-md-12">
     <div class="card card-outline card-cyan">
         <div class="card-header">
-            <h3 class="card-title">Daftar Anggota</h3>
+            <h3 class="card-title">Daftar Peserta</h3>
 
             <div class="card-tools">
                 <?php if (empty($anggota)) { ?>
-                    <button type="button" class="btn bg-cyan btn-flat btn-xs" onclick="tambah('<?= $id_kursus ?>')"><i class="fas fa-plus"></i> Tambah Anggota</button>
+                    <button type="button" class="btn bg-cyan btn-flat btn-xs" onclick="tambah('<?= $id_kursus ?>')"><i class="fas fa-plus"></i> Tambah Peserta</button>
                 <?php } else { ?>
-                    <a href="#" class="btn bg-success btn-flat btn-xs update-record" data-id_kursus="<?= $id_kursus ?>"><i class="fa fa-edit"></i> Edit Anggota</a>
+                    <a href="#" class="btn bg-success btn-flat btn-xs update-record" data-id_kursus="<?= $id_kursus ?>"><i class="fa fa-edit"></i> Edit Peserta</a>
                 <?php } ?>
             </div>
         </div>
