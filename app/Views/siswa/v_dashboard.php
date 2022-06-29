@@ -15,11 +15,11 @@
             </div>
         </div>
 
-        <div class="card-body" style="height: 300px;">
+        <div class="card-body">
 
             <h1>Selamat Datang <?= session()->get('nama_user') ?></h1>
 
-            <ul class="list-group mt-3">
+            <ul class=" list-group mt-3">
                 <li class="list-group-item">1.&nbsp; Awali kegiatan dengan berdoa terlebih dahulu.</li>
                 <li class="list-group-item">2.&nbsp; Jika mengalami kesulitan jangan malu untuk bertanya kepada orang tua maupun guru.</li>
                 <li class="list-group-item">3.&nbsp; Awali dengan kata "tolong" jika hendak meminta bantuan kepada orang lain.</li>

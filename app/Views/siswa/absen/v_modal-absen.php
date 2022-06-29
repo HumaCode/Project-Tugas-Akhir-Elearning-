@@ -18,6 +18,7 @@
 
                 <div class="form-group text-center">
                     <label for="foto">Ambil Gambar(Webcam)</label>
+                    <p class="text-danger">* Gunakan pakaian yang sopan / seragam sesuai dengan hari</p>
 
                     <div class="row">
                         <div class="col-md-5 m-auto" id="my_camera">
@@ -111,10 +112,10 @@
 
 <script>
     Webcam.set({
-        width: 320,
-        height: 240,
+        width: 300,
+        height: 230,
         image_format: 'jpeg',
-        jpeg_quality: 100
+        jpeg_quality: 200
     });
     Webcam.attach('#my_camera');
 
