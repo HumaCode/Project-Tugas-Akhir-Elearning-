@@ -27,19 +27,21 @@
                     </div>
                 <?php } else { ?>
 
+                    <div class="col-md-12">
+
+                        <!-- pencarian -->
+                        <form class="form-inline">
+                            <label class="sr-only" for="keyword">Name</label>
+                            <input type="text" class="form-control mb-3 mr-sm-2" name="keyword" id="keyword" placeholder="Pencarian">
+
+                            <button type="submit" class="btn bg-cyan mb-3" name="submit"> Cari</button>
+                        </form>
+
+                    </div>
+
 
                     <?php foreach ($kursus as $k) { ?>
-                        <div class="col-md-12">
 
-                            <!-- pencarian -->
-                            <form class="form-inline">
-                                <label class="sr-only" for="keyword">Name</label>
-                                <input type="text" class="form-control mb-3 mr-sm-2" name="keyword" id="keyword" placeholder="Pencarian">
-
-                                <button type="submit" class="btn bg-cyan mb-3" name="submit"> Cari</button>
-                            </form>
-
-                        </div>
 
                         <div class="col-md-6 col-lg-6 col-xl-4 mb-2">
                             <div class="card mb-2" style="border-radius: 10px;">

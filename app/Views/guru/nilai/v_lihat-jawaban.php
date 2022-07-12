@@ -168,7 +168,7 @@ $format = substr($jawaban['jwb_file'], -4);
                         <div class="col-sm-6 my-1">
 
                             <label class="sr-only" for="nilai">Nilai</label>
-                            <input type="number" min="1" name="nilai" class="form-control " id="nilai" placeholder="<?= $jawaban['nilai'] ?>">
+                            <input type="number" min="0" name="nilai" class="form-control " id="nilai" placeholder="<?= $jawaban['nilai'] ?>">
                             <div class="invalid-feedback errorNilai"></div>
                         </div>
                         <div class="col-auto my-1">

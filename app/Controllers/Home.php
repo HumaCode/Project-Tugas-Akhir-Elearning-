@@ -21,7 +21,7 @@ class Home extends BaseController
             'setting' => $this->ModelSetting->find($id_setting)
         ];
 
-        return view('landing_page', $data);
+        return view('landing_page1', $data);
     }
 
     public function kritik()

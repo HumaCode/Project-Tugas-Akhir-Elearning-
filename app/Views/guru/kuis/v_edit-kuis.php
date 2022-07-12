@@ -15,6 +15,7 @@
             <input type="hidden" name="id_kuis" id="id_kuis" value="<?= $kuis['id_kuis'] ?>">
             <input type="hidden" name="id_sub_kursus" id="id_sub_kursus" value="<?= $id_sub_kursus ?>">
             <input type="hidden" name="id_kursus" id="id_kursus" value="<?= $id_kursus ?>">
+            <input type="hidden" name="url" id="url" value="<?= $kuis['url'] ?>">
 
             <div class="form-group">
                 <label for="nama_kuis">Judul</label>

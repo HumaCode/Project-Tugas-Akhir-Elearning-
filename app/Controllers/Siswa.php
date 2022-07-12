@@ -379,11 +379,13 @@ class Siswa extends BaseController
 
         // ambil data siswa berdasarkan username/session username
         $siswa = $this->ModelSiswa->tampilSiswaByUsername($username);
+        $id_siswa = $siswa['id_siswa'];
 
         $data = [
             'title'         => 'Kuis ' . $kursus['mapel'] . ' ' . $kursus['kelas'],
             'icon'          => '<i class="fas fa-graduation-cap"></i>',
             'kuis'          => $this->ModelKuis->find($id_kuis),
+            'jawaban'       => $this->ModelJawaban->tampilById($id_kuis, $id_siswa),
             'id_kursus'     => $id_kursus,
             'id_sub_kursus' => $id_sub_kursus,
             'id_kuis'       => $id_kuis,

@@ -52,7 +52,7 @@
                                 <?php if ($k['url'] == null) { ?>
                                     <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $k['id_kuis'] ?>')"><i class="fa fa-eye"></i></button>
                                 <?php } else { ?>
-                                    <a href="<?= base_url('admin/lihatVideoKuis/' . $k['id_kuis'] . '/' . $k['id_kursus'] . '/' . $k['id_sub_kursus']) ?>" class="btn btn-primary btn-flat btn-xs"><i class="fa fa-eye"></i></a>
+                                    <a href="<?= base_url('admin/lihatVideoKuis/' . $k['id_kuis'] . '/' . $k['id_kursus'] . '/' . $k['id_sub_kursus']) ?>" target="_blank" class="btn btn-primary btn-flat btn-xs"><i class="fa fa-eye"></i></a>
                                 <?php } ?>
 
                                 <a href="<?= base_url('admin/editKuis/' . $k['id_kuis'] . '/' . $k['id_sub_kursus'] . '/' . $k['id_kursus']) ?>" class="btn btn-success btn-flat btn-xs"><i class="fas fa-edit"></i></a>

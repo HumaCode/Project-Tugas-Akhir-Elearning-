@@ -25,87 +25,97 @@
 
         <div class="card-body">
 
-            <div class="row">
+            <?php if ($jawaban == 0) { ?>
 
 
-                <div class="col-md-8 mb-2">
+                <div class="row">
 
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" style="border-color: white; border-radius: 20px;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
 
-                <div class="col-md-4 mb-2">
-                    <div class="card p-3 detail">
-                        <table>
-                            <tr>
-                                <td width="100">Judul</td>
-                                <td width="30">:</td>
-                                <td><?= $kuis['nama_kuis'] ?></td>
-                            </tr>
-                            <tr>
-                                <td>Dibuat</td>
-                                <td>:</td>
-                                <td><?= tanggal_indonesia($kuis['dibuat'], false) ?></td>
-                            </tr>
-                            <tr>
-                                <td>Tipe</td>
-                                <td>:</td>
-                                <td>
-                                    Video
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="col-md-8 mb-2">
+
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" style="border-color: white; border-radius: 20px;" src="https://www.youtube.com/embed/<?= $kuis['url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
 
-                    <div class="card p-3 detail">
-                        <table>
-                            <tr>
-                                <td width="100">Keterangan :</td>
-                            </tr>
-                        </table>
-                        <p class="text-justify"><?= $kuis['kuis'] ?></p>
+                    <div class="col-md-4 mb-2">
+                        <div class="card p-3 detail">
+                            <table>
+                                <tr>
+                                    <td width="100">Judul</td>
+                                    <td width="30">:</td>
+                                    <td><?= $kuis['nama_kuis'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Dibuat</td>
+                                    <td>:</td>
+                                    <td><?= tanggal_indonesia($kuis['dibuat'], false) ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Tipe</td>
+                                    <td>:</td>
+                                    <td>
+                                        Video
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="card p-3 detail">
+                            <table>
+                                <tr>
+                                    <td width="100">Keterangan :</td>
+                                </tr>
+                            </table>
+                            <p class="text-justify"><?= $kuis['kuis'] ?></p>
+                        </div>
                     </div>
+
                 </div>
 
-            </div>
+                <hr>
 
-            <hr>
+                <?= form_open_multipart('siswa/jawab') ?>
+                <?= csrf_field() ?>
 
-            <?= form_open_multipart('siswa/jawab') ?>
-            <?= csrf_field() ?>
+                <input type="hidden" name="id_kuis" id="id_kuis" value="<?= $id_kuis ?>">
+                <input type="hidden" name="id_kursus" id="id_kursus" value="<?= $id_kursus ?>">
+                <input type="hidden" name="id_sub_kursus" id="id_sub_kursus" value="<?= $id_sub_kursus ?>">
 
-            <input type="hidden" name="id_kuis" id="id_kuis" value="<?= $id_kuis ?>">
-            <input type="hidden" name="id_kursus" id="id_kursus" value="<?= $id_kursus ?>">
-            <input type="hidden" name="id_sub_kursus" id="id_sub_kursus" value="<?= $id_sub_kursus ?>">
-
-            <div class="form-group mt-3">
-                <label for="jawab">Lembar Jawab</label>
-                <textarea name="jawab" id="jawab" class="form-control" rows="3" style="border-radius: 0px;"></textarea>
-                <p class="text-danger err"><strong><?= $validation->hasError('jawab') ? $validation->getError('jawab') : '' ?></strong></p>
-            </div>
-
-            <div class="form-group">
-                <label for="">File</label>
-
-                <div class="custom-file ">
-                    <input type="file" name="file" class="custom-file-input" id="file" onchange="previewImg()" accept=".jpg,.jpeg,.png,.doc,.docx,.ppt,.pptx,.pdf">
-                    <label class="custom-file-label" for="file">Pilih File</label>
+                <div class="form-group mt-3">
+                    <label for="jawab">Lembar Jawab</label>
+                    <textarea name="jawab" id="jawab" class="form-control" rows="3" style="border-radius: 0px;"></textarea>
+                    <p class="text-danger err"><strong><?= $validation->hasError('jawab') ? $validation->getError('jawab') : '' ?></strong></p>
                 </div>
 
-                <small>* Jika jawaban berupa file, silahkan upload file.</small>
-                <p class="text-danger err"><strong><?= $validation->hasError('file') ? $validation->getError('file') : '' ?></strong></p>
-            </div>
-            <div class="text-center">
-                <img src="" class="img-thumbnail img-preview" style="display: none;">
-            </div>
+                <div class="form-group">
+                    <label for="">File</label>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-flat bg-cyan "> Submit</button>
-            </div>
+                    <div class="custom-file ">
+                        <input type="file" name="file" class="custom-file-input" id="file" onchange="previewImg()" accept=".jpg,.jpeg,.png,.doc,.docx,.ppt,.pptx,.pdf">
+                        <label class="custom-file-label" for="file">Pilih File</label>
+                    </div>
+
+                    <small>* Jika jawaban berupa file, silahkan upload file.</small>
+                    <p class="text-danger err"><strong><?= $validation->hasError('file') ? $validation->getError('file') : '' ?></strong></p>
+                </div>
+                <div class="text-center">
+                    <img src="" class="img-thumbnail img-preview" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-flat bg-cyan "> Submit</button>
+                </div>
 
 
-            <?= form_close() ?>
+                <?= form_close() ?>
+
+            <?php } else { ?>
+
+                <div class="alert alert-success alert-dismissible text-center">
+                    Kamu sudah menjawab kuis ini..
+                </div>
+            <?php } ?>
 
         </div>
         <div class="card-footer">

@@ -37,11 +37,11 @@ $format = substr($kuis['file'], -4);
 
                 <div class="row">
                     <?php if ($format == '.pdf') { ?>
-                        <div class="col-md-12">
+                        <div class="col-md-12 m-auto">
 
                             <div class="card">
 
-                                <iframe src="<?= base_url('assets/file/' . $kuis['file']) ?>" height="1500px">
+                                <iframe src="<?= base_url('assets/file/' . $kuis['file']) ?>" height="1000">
                                 </iframe>
                             </div>
 
@@ -192,6 +192,8 @@ $format = substr($kuis['file'], -4);
         </div>
 
         <a href="<?= base_url('siswa/kuis/' . $id_sub_kursus . '/' . $id_kursus) ?>" class="btn btn-danger btn-flat btn-block">Kembali</a>
+
+
     <?php } ?>
 </div>
 

@@ -153,6 +153,7 @@
                     },
                     dataType: "json",
                     success: function(response) {
+
                         if (response.success) {
                             Swal.fire({
                                 icon: 'success',
@@ -162,8 +163,12 @@
                             dataKelas();
                         }
                     },
-                    error: function(xhr, ajaxOption, thrownError) {
-                        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Perintah tidak dapat diproses.!!',
+                        })
                     }
                 })
             }

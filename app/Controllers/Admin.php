@@ -1572,7 +1572,6 @@ class Admin extends BaseController
 
             $msg = [
                 'success'  => "$mapel berhasil dihapus",
-                'err' => "$mapel gagal dihapus"
             ];
 
             echo json_encode($msg);
@@ -3730,11 +3729,6 @@ class Admin extends BaseController
 
             if ($file->getError() == 4) {
                 $data = [
-                    'desk1'             => htmlspecialchars($this->request->getVar('desk1')),
-                    'desk2'             => htmlspecialchars($this->request->getVar('desk2')),
-                    'desk3'             => htmlspecialchars($this->request->getVar('desk3')),
-                    'desk3'             => htmlspecialchars($this->request->getVar('desk3')),
-                    'desk4'             => htmlspecialchars($this->request->getVar('desk4')),
                     'nama_sekolah'      => htmlspecialchars($this->request->getVar('nama_sekolah')),
                     'npsn'              => htmlspecialchars($this->request->getVar('npsn')),
                     'jenjang'           => htmlspecialchars($this->request->getVar('jenjang')),
@@ -3767,11 +3761,6 @@ class Admin extends BaseController
 
 
                 $data = [
-                    'desk1'             => htmlspecialchars($this->request->getVar('desk1')),
-                    'desk2'             => htmlspecialchars($this->request->getVar('desk2')),
-                    'desk3'             => htmlspecialchars($this->request->getVar('desk3')),
-                    'desk3'             => htmlspecialchars($this->request->getVar('desk3')),
-                    'desk4'             => htmlspecialchars($this->request->getVar('desk4')),
                     'nama_sekolah'      => htmlspecialchars($this->request->getVar('nama_sekolah')),
                     'npsn'              => htmlspecialchars($this->request->getVar('npsn')),
                     'jenjang'           => htmlspecialchars($this->request->getVar('jenjang')),

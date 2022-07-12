@@ -46,7 +46,11 @@
                             </td>
                             <td class="text-center">
                                 <?php if ($m['url'] == null) { ?>
-                                    <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $m['id_materi'] ?>')"><i class="fa fa-eye"></i></button>
+                                    <?php if ($m['nama_file'] == 'Tidak ada file') { ?>
+                                        <button type="button" class="btn btn-primary btn-flat btn-xs" onclick="detail('<?= $m['id_materi'] ?>')"><i class="fa fa-eye"></i></button>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('guru/downloadFileMateri/' . $m['id_materi']) ?>" class="btn btn-warning btn-flat btn-xs"> <i class="fa fa-download"></i></a>
+                                    <?php  } ?>
                                 <?php } else { ?>
                                     <a href="<?= base_url('guru/lihatVideoMateri/' . $m['id_materi'] . '/' . $m['id_kursus'] . '/' . $m['id_sub_kursus']) ?>" class="btn btn-primary btn-flat btn-xs"><i class="fa fa-eye"></i></a>
                                 <?php } ?>

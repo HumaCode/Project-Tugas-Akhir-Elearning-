@@ -56,37 +56,18 @@
                     </div>
 
 
-                    <div class="form-group mt-2">
-                        <label for="desk1">Deskripsi 1</label>
-                        <textarea name="desk1" id="desk1" cols="30" rows="3" class="form-control"><?= $setting['desk1'] ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="desk2">Deskripsi 2</label>
-                        <textarea name="desk2" id="desk2" cols="30" rows="3" class="form-control"><?= $setting['desk2'] ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="desk3">Deskripsi 3</label>
-                        <textarea name="desk3" id="desk3" cols="30" rows="3" class="form-control"><?= $setting['desk3'] ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="desk4">Deskripsi 4</label>
-                        <textarea name="desk4" id="desk4" cols="30" rows="3" class="form-control"><?= $setting['desk4'] ?></textarea>
-                    </div>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nama_sekolah">Nama Sekolah</label>
-                                <input type="text" name="nama_sekolah" class="form-control" id="nama_sekolah" value="<?= $setting['nama_sekolah'] ?>">
+                                <input type="text" name="nama_sekolah" class="form-control" id="nama_sekolah" value="<?= $setting['nama_sekolah'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="npsn">NPSN</label>
-                                <input type="text" name="npsn" class="form-control" id="npsn" value="<?= $setting['npsn'] ?>">
+                                <input type="text" name="npsn" class="form-control" id="npsn" value="<?= $setting['npsn'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -95,39 +76,39 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jenjang">Jenjang Sekolah</label>
-                                <input type="text" name="jenjang" class="form-control" id="jenjang" value="<?= $setting['jenjang'] ?>">
+                                <input type="text" name="jenjang" class="form-control" id="jenjang" value="<?= $setting['jenjang'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="status_sekolah">Status Pendidikan</label>
-                                <input type="text" name="status_sekolah" class="form-control" id="status_sekolah" value="<?= $setting['status_sekolah'] ?>">
+                                <input type="text" name="status_sekolah" class="form-control" id="status_sekolah" value="<?= $setting['status_sekolah'] ?>" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" id="alamat" value="<?= $setting['alamat'] ?>">
+                        <input type="text" name="alamat" class="form-control" id="alamat" value="<?= $setting['alamat'] ?>" required>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="kd_pos">Kode Pos</label>
-                                <input type="text" name="kd_pos" class="form-control" id="kd_pos" value="<?= $setting['kd_pos'] ?>">
+                                <input type="text" name="kd_pos" class="form-control" id="kd_pos" value="<?= $setting['kd_pos'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="rt">Rt</label>
-                                <input type="text" name="rt" class="form-control" id="rt" value="<?= $setting['rt'] ?>">
+                                <input type="text" name="rt" class="form-control" id="rt" value="<?= $setting['rt'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="rw">Rw</label>
-                                <input type="text" name="rw" class="form-control" id="rw" value="<?= $setting['rw'] ?>">
+                                <input type="text" name="rw" class="form-control" id="rw" value="<?= $setting['rw'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -136,19 +117,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="kelurahan">Kelurahan</label>
-                                <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?= $setting['kelurahan'] ?>">
+                                <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?= $setting['kelurahan'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="kecamatan">Kecamatan</label>
-                                <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?= $setting['kecamatan'] ?>">
+                                <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?= $setting['kecamatan'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="kabupaten">Kabupaten</label>
-                                <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?= $setting['kabupaten'] ?>">
+                                <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?= $setting['kabupaten'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -157,26 +138,26 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="fb">Facebook</label>
-                                <input type="text" name="fb" class="form-control" id="fb" value="<?= $setting['fb'] ?>">
+                                <input type="text" name="fb" class="form-control" id="fb" value="<?= $setting['fb'] ?> ">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="tlp">Telepon</label>
-                                <input type="number" name="tlp" min="1" class="form-control" id="tlp" value="<?= $setting['tlp'] ?>">
+                                <input type="number" name="tlp" min="1" class="form-control" id="tlp" value="<?= $setting['tlp'] ?>" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" value="<?= $setting['email'] ?>">
+                                <input type="email" name="email" class="form-control" id="email" value="<?= $setting['email'] ?>" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="map">Map</label>
-                        <textarea name="map" name="map" id="map" cols="30" rows="5" class="form-control"><?= $setting['map'] ?></textarea>
+                        <textarea name="map" name="map" id="map" cols="30" rows="5" class="form-control" required><?= $setting['map'] ?></textarea>
                     </div>
 
                     <div class="form-group">
@@ -231,9 +212,6 @@
     }
 
 
-
-
-
     function editFotoSekolah(id_setting) {
         $.ajax({
             type: "post",
@@ -258,9 +236,6 @@
         var table = $('#tb-kritik').DataTable({
             "processing": true,
             "serverSide": true,
-            "paging": true,
-            "ordering": true,
-            "info": true,
             "autoWidth": false,
             "responsive": true,
             "order": [],

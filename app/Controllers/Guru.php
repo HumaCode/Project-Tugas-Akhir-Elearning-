@@ -1377,6 +1377,7 @@ class Guru extends BaseController
         $id_kuis        = $this->request->getVar('id_kuis');
         $id_sub_kursus  = $this->request->getVar('id_sub_kursus');
         $id_kursus      = $this->request->getVar('id_kursus');
+        $urlLama        = $this->request->getVar('url');
 
 
         // validasi
@@ -1413,10 +1414,17 @@ class Guru extends BaseController
 
             $file = $this->request->getFile('file');
 
+            if ($this->request->getVar('url') == '') {
+                $url = $urlLama;
+            } else {
+                $url = htmlspecialchars($this->request->getVar('url'));
+            }
+
             if ($file->getError() == 4) {
                 $data = [
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1436,6 +1444,7 @@ class Guru extends BaseController
                     'nama_kuis'         => htmlspecialchars($this->request->getVar('nama_kuis')),
                     'pertemuan'         => htmlspecialchars($this->request->getVar('pertemuan')),
                     'file'              => $nama_file,
+                    'url'               => $url,
                     'kuis'              => $this->request->getVar('kuis'),
                     'dibuat'            => date('Y-m-d H:i:s')
                 ];
@@ -1661,6 +1670,7 @@ class Guru extends BaseController
             'title'         => 'Cetak Nilai' . $kursus['mapel'] . ' ' . $kursus['kelas'],
             'icon'          => '<i class="fa fa-file"></i>',
             'nilai'         => $this->ModelJawaban->tampilJawabanById($id_kuis, $id_kursus, $id_sub_kursus),
+            'kuis'         => $this->ModelJawaban->tampilNilaiById($id_kuis, $id_kursus, $id_sub_kursus),
             'id_kursus'     => $id_kursus,
             'id_sub_kursus' => $id_sub_kursus,
             'mapel'         => $kursus['mapel'],

@@ -153,14 +153,14 @@
                     },
                     dataType: "json",
                     success: function(response) {
-                        if (response.success) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Berhasil',
-                                text: response.success,
-                            })
-                            dataMapel();
-                        }
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil',
+                            text: response.success,
+                        })
+
+                        dataMapel();
+
                     },
                     error: function() {
                         Swal.fire({

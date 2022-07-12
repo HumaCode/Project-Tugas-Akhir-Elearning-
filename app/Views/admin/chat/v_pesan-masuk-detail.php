@@ -31,7 +31,7 @@
                 </tr>
             </table>
             <hr>
-            <?= form_open('chat/balasPesan', ['class' => 'formBalas']) ?>
+            <?= form_open('admin/balasPesan', ['class' => 'formBalas']) ?>
             <?= csrf_field() ?>
 
             <input type="hidden" name="penerima" value="<?= $pengirim['id_user'] ?>">

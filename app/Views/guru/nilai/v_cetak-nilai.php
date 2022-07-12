@@ -72,7 +72,7 @@
 
         <div class=" text-center mb-2">
 
-            <h3>Nilai Siswa <?= $kelas ?> Matapelajaran <?= $mapel ?> </h3>
+            <h3>Nilai Siswa <?= $kelas ?> Matapelajaran <?= $mapel ?> <?= $kuis['nama_kuis'] ?></h3>
             <span>Tahun Pelajaran <?= $ta['tahun'] ?> Semester <?= $ta['semester'] ?></span>
         </div>
 

@@ -61,6 +61,22 @@ $format = substr($file, -4);
                         </div>
                     </div>
 
+                <?php } else if ($format == 'docx' || $format == '.doc' || $format == '.pdf') { ?>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+
+                            <img src="<?= base_url('assets/img/document.png') ?>" class="img-fluid" alt="">
+                            <p>Dokument</p>
+
+                        </div>
+                        <div class="col-md-8">
+                            <h3><?= $nama_kuis ?></h3>
+
+                            <p class="text-justify"><?= $kuis ?></p>
+
+                            <a href="<?= base_url('guru/downloadFileKuis/' . $id_kuis) ?>"> Download File</a>
+                        </div>
+                    </div>
                 <?php } ?>
 
             </div>
